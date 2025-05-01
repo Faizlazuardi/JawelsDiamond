@@ -63,7 +63,7 @@ namespace JawelsDiamond.Controller
             return "Success";
         }
 
-        public string Login(string email, string password)
+        public string Login(string email, string password, bool rememberMe)
         {
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
@@ -76,7 +76,29 @@ namespace JawelsDiamond.Controller
                 return "Invalid email or password";
             }
 
+            HttpContext.Current.Session["user"] = user;
+
+            if (rememberMe)
+            {
+                HttpCookie cookie = new HttpCookie("user");
+                cookie["email"] = user.UserEmail;
+                cookie.Expires = DateTime.Now.AddDays(7);
+                cookie.HttpOnly = true;
+                HttpContext.Current.Response.Cookies.Add(cookie);
+            }
+
             return "Success";
+        }
+
+        public MsUser ValidateRememberMeCookie()
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies["user"];
+            if (cookie != null && !string.IsNullOrEmpty(cookie["email"]))
+            {
+                string email = cookie["email"];
+                return UserHandler.GetUserByEmail(email);
+            }
+            return null;
         }
     }
 }

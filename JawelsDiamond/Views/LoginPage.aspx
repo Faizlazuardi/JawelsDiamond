@@ -16,6 +16,9 @@
             <asp:Label ID="PasswordLabel" runat="server" Text="Password"></asp:Label>
             <asp:TextBox ID="PasswordInput" runat="server"></asp:TextBox>
 
+            <asp:CheckBox ID="RememberMeCheckbox" runat="server" />
+            <asp:Label ID="RememberMeLabel" runat="server" Text="Remember Me"></asp:Label>
+
             <br />
             <br />
 

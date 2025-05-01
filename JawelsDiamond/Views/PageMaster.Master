@@ -16,10 +16,25 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">My Orders</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <asp:ContentPlaceHolder ID="ContentBody" runat="server">
         </asp:ContentPlaceHolder>
     </main>
-    <footer style="text-align:center"><small>Created with 🤍 by <b>Bapak-Bapak RT006</b></small></footer>
+    <footer style="text-align: center"><small>Created with 🤍 by <b>Bapak-Bapak RT006</b></small></footer>
 </body>
 </html>

@@ -1,4 +1,5 @@
 ﻿using JawelsDiamond.Controller;
+using JawelsDiamond.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +13,36 @@ namespace JawelsDiamond.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                AuthController authController = new AuthController();
+                MsUser user = authController.ValidateRememberMeCookie();
 
+                if (user != null)
+                {
+                    Session["user"] = user;
+                    Response.Redirect("HomePage.aspx");
+                }
+            }
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             string userEmail = EmailInput.Text;
             string userPassword = PasswordInput.Text;
-            AuthController authController = new AuthController();
-            string result = authController.Login(userEmail, userPassword);
+            bool rememberMe = RememberMeCheckbox.Checked;
 
-            StatusMessage.Text = result;
+            AuthController authController = new AuthController();
+            string result = authController.Login(userEmail, userPassword, rememberMe);
+
+            if (result == "Success")
+            {
+                Response.Redirect("HomePage.aspx");
+            }
+            else
+            {
+                StatusMessage.Text = result;
+            }
         }
     }
 }

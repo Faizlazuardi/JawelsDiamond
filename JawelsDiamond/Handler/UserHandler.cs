@@ -12,7 +12,7 @@ namespace JawelsDiamond.Handler
     {
         public static bool RegisterUser(string userName, string userPassword, string userEmail, DateTime userDOB, string userGender)
         {
-            if(UserRepository.GetUserByEmail(userEmail) != null)
+            if (UserRepository.GetUserByEmail(userEmail) != null)
             {
                 return false;
             }
@@ -25,6 +25,11 @@ namespace JawelsDiamond.Handler
         public static MsUser Login(string email, string password)
         {
             return UserRepository.GetUserByEmailAndPassword(email, password);
+        }
+
+        public static MsUser GetUserByEmail(string email)
+        {
+            return UserRepository.GetUserByEmail(email);
         }
     }
 }
