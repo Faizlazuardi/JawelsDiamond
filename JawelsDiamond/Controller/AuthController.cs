@@ -1,4 +1,5 @@
 ﻿using JawelsDiamond.Handler;
+using JawelsDiamond.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +70,7 @@ namespace JawelsDiamond.Controller
                 return "All fields must be filled";
             }
 
-            MsUser user = userHandler.Login(email, password);
+            MsUser user = UserHandler.Login(email, password);
             if (user == null)
             {
                 return "Invalid email or password";

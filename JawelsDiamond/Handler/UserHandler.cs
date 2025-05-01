@@ -24,7 +24,7 @@ namespace JawelsDiamond.Handler
 
         public static MsUser Login(string email, string password)
         {
-            return userRepository.GetUserByEmailAndPassword(email, password);
+            return UserRepository.GetUserByEmailAndPassword(email, password);
         }
     }
 }
