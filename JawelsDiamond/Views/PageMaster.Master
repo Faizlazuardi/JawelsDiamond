@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PageMaster.Master.cs" Inherits="JawelsDiamond.Views.HeaderMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <main>
+        <asp:ContentPlaceHolder ID="ContentBody" runat="server">
+        </asp:ContentPlaceHolder>
+    </main>
+    <footer style="text-align:center"><small>Created with 🤍 by <b>Bapak-Bapak RT006</b></small></footer>
+</body>
+</html>
