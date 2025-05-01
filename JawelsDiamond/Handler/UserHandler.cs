@@ -21,5 +21,10 @@ namespace JawelsDiamond.Handler
             UserRepository.InsertUser(newUser);
             return true;
         }
+
+        public static MsUser Login(string email, string password)
+        {
+            return userRepository.GetUserByEmailAndPassword(email, password);
+        }
     }
 }

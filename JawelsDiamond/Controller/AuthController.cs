@@ -61,5 +61,21 @@ namespace JawelsDiamond.Controller
 
             return "Success";
         }
+
+        public string Login(string email, string password)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                return "All fields must be filled";
+            }
+
+            MsUser user = userHandler.Login(email, password);
+            if (user == null)
+            {
+                return "Invalid email or password";
+            }
+
+            return "Success";
+        }
     }
 }
