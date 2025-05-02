@@ -25,5 +25,10 @@ namespace JawelsDiamond.Repository
         {
             return db.MsUsers.FirstOrDefault(u => u.UserEmail == email && u.UserPassword == password);
         }
+
+        public static int GetIDByEmail(string email)
+        {
+            return db.MsUsers.Where(u => u.UserEmail == email).Select(u => u.UserID).FirstOrDefault();
+        }
     }
 }

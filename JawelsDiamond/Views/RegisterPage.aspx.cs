@@ -1,4 +1,5 @@
 ﻿using JawelsDiamond.Controller;
+using JawelsDiamond.Handler;
 using JawelsDiamond.Models;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,7 @@ namespace JawelsDiamond.Views
         {
             if (!IsPostBack)
             {
-                AuthController authController = new AuthController();
-                MsUser user = authController.ValidateRememberMeCookie();
-                if (Session["user"] != null || user != null)
-                {
-                    Response.Redirect("HomePage.aspx");
-                }
+                SessionHandler.RedirectIfLoggedIn(Session, Response);
             }
         }
 

@@ -26,10 +26,11 @@
             <asp:TextBox ID="DateInput" runat="server" TextMode="Date"></asp:TextBox>
 
             <asp:Label ID="GenderLabel" runat="server" Text="Gender"></asp:Label>
-            <asp:DropDownList ID="GenderList" runat="server">
-                <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
+            
+            <asp:RadioButtonList ID="GenderList" runat="server" BorderStyle="None">
+                <asp:ListItem Text="Male" Value="Male" Selected></asp:ListItem>
                 <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
-            </asp:DropDownList>
+            </asp:RadioButtonList>
 
             <br />
             <br />

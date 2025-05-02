@@ -31,5 +31,10 @@ namespace JawelsDiamond.Handler
         {
             return UserRepository.GetUserByEmail(email);
         }
+
+        public static int GetUserIDByEmail(string email)
+        {
+            return UserRepository.GetIDByEmail(email);
+        }
     }
 }
