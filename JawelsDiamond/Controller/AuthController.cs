@@ -89,5 +89,33 @@ namespace JawelsDiamond.Controller
 
             return "Success";
         }
+
+        public string ChangePassword(int userId, string oldPassword, string newPassword, string confirmPassword)
+        {
+            if (string.IsNullOrEmpty(oldPassword) || string.IsNullOrEmpty(newPassword) ||
+                string.IsNullOrEmpty(confirmPassword))
+            {
+                return "All fields must be filled";
+            }
+
+            if (newPassword.Length < 8 || newPassword.Length > 25 ||
+                !System.Text.RegularExpressions.Regex.IsMatch(newPassword, @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,25}$"))
+            {
+                return "New password must be alphanumeric and 8 to 25 characters";
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                return "New password and confirm password must match";
+            }
+
+            bool result = UserHandler.ChangePassword(userId, oldPassword, newPassword);
+            if (!result) 
+            {
+                return "Incorrect old password";
+            }
+
+            return "Success";
+        }
     }
 }

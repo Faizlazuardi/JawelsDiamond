@@ -37,13 +37,14 @@
         <br />
         <br />
         <asp:DropDownList ID="PaymentList" runat="server">
-            <asp:ListItem Text="Credit Card" Value="1"></asp:ListItem>
-            <asp:ListItem Text="PayPal" Value="2"></asp:ListItem>
-            <asp:ListItem Text="Bank Transfer" Value="3"></asp:ListItem>
+            <asp:ListItem Text="Credit Card" Value="Credit Card"></asp:ListItem>
+            <asp:ListItem Text="PayPal" Value="Paypal"></asp:ListItem>
+            <asp:ListItem Text="Bank Transfer" Value="Bank Transfer"></asp:ListItem>
         </asp:DropDownList>
         <br />
         <br />
         <br />
+        <asp:Label ID="StatusMessage" runat="server" Text="" CssClass="pico-color-red-500"></asp:Label>
         <asp:Button ID="CheckoutButton" runat="server" Text="Checkout" OnClick="CheckoutButton_Click" />
         <asp:Button ID="ClearCartButton" runat="server" Text="Clear Cart" CssClass="pico-background-red-500" />
     </form>

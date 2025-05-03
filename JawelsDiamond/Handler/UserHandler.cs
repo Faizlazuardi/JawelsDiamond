@@ -61,5 +61,17 @@ namespace JawelsDiamond.Handler
                 HttpContext.Current.Session["UserID"] = userId;
             }
         }
+
+        public static bool ChangePassword(int userId, string oldPassword, string newPassword)
+        {
+            MsUser user = UserRepository.GetUserById(userId);
+            if (user != null && user.UserPassword == oldPassword)
+            {
+                user.UserPassword = newPassword;
+                UserRepository.UpdateUser(user);
+                return true;
+            }
+            return false;
+        }
     }
 }

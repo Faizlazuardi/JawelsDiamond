@@ -1,6 +1,7 @@
 ﻿using JawelsDiamond.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -29,6 +30,17 @@ namespace JawelsDiamond.Repository
         public static int GetIDByEmail(string email)
         {
             return db.MsUsers.Where(u => u.UserEmail == email).Select(u => u.UserID).FirstOrDefault();
+        }
+
+        public static MsUser GetUserById(int id)
+        {
+            return db.MsUsers.Find(id);
+        }
+
+        public static void UpdateUser(MsUser user)
+        {
+            db.Entry(user).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

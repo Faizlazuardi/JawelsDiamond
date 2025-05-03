@@ -1,4 +1,5 @@
-﻿using JawelsDiamond.Handler;
+﻿using JawelsDiamond.Controller;
+using JawelsDiamond.Handler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,8 @@ namespace JawelsDiamond.Views
         {
             int userId = UserHandler.GetUserIdFromSession();
             string paymentMethod = PaymentList.SelectedValue;
-            TransactionHandlers.CheckoutCart(userId, paymentMethod);
+            CartController cartController = new CartController();
+            string result = cartController.Checkout(userId, paymentMethod);
             RefreshCartGridView();
         }
 
@@ -64,11 +66,21 @@ namespace JawelsDiamond.Views
 
             TextBox textBoxQuantity = (TextBox)row.FindControl("TextBoxQuantity");
 
-            if (int.TryParse(textBoxQuantity.Text, out int newQuantity) && newQuantity > 0)
+            if (textBoxQuantity != null)
             {
                 int userId = UserHandler.GetUserIdFromSession();
-                CartHandler.UpdateCartQuantity(userId, jewelId, newQuantity);
-                RefreshCartGridView();
+                CartController cartController = new CartController();
+                string result = cartController.UpdateCartQuantity(userId, jewelId, textBoxQuantity.Text);
+
+                if (result == "Success")
+                {
+                    StatusMessage.Text = result;
+                    RefreshCartGridView();
+                }
+                else
+                {
+                    StatusMessage.Text = result;
+                }
             }
         }
 
