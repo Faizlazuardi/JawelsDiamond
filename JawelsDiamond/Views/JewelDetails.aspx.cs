@@ -20,7 +20,7 @@ namespace JawelsDiamond.Views
             }
         }
 
-        public void ShowJewelDetails()
+        private void ShowJewelDetails()
         {
             int id = Convert.ToInt32(Request.QueryString["id"]);
             MsJewel jewel = JewelHandler.GetJewelById(id);
@@ -45,26 +45,15 @@ namespace JawelsDiamond.Views
         {
             if (int.TryParse(Request.QueryString["id"], out int id))
             {
-                MsUser currentUser = Session["user"] as MsUser;
-
-                if (currentUser == null)
+                if (Session["UserID"] == null)
                 {
-                    HttpCookie userCookie = Request.Cookies["user"];
-                    if (userCookie != null && !string.IsNullOrEmpty(userCookie["email"]))
-                    {
-                        string email = userCookie["email"];
-                        currentUser = UserHandler.GetUserByEmail(email);
-
-                        if (currentUser != null)
-                        {
-                            Session["user"] = currentUser;
-                        }
-                    }
+                    UserHandler.RestoreSessionFromCookie();
                 }
 
-                if (currentUser != null)
+                if (Session["UserID"] != null)
                 {
-                    CartHandler.AddToCart(currentUser.UserID, id);
+                    int userId = (int)Session["UserID"];
+                    CartHandler.AddToCart(userId, id);
 
                     Response.Redirect("CartPage.aspx");
                 }

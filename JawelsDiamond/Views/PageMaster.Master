@@ -19,14 +19,14 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">My Orders</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="HomePage.aspx">Home</a></li>
+                <li><a href="CartPage.aspx">Cart</a></li>
+                <li><a href="MyOrdersPage.aspx">My Orders</a></li>
+                <li><a href="ProfilePage.aspx">Profile</a></li>
             </ul>
             <ul>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="RegisterPage.aspx">Register</a></li>
+                <li><a href="LoginPage.aspx">Login</a></li>
                 <li><a href="#">Logout</a></li>
             </ul>
         </nav>

@@ -14,28 +14,14 @@ namespace JawelsDiamond.Views
         {
             if (!IsPostBack)
             {
+                SessionHandler.RedirectIfNotLoggedIn(Session, Response);
                 RefreshCartGridView();
-            }
-        }
-
-        private int GetUserIdFromCookie()
-        {
-            HttpCookie userCookie = Request.Cookies["user"];
-            if (userCookie != null && !string.IsNullOrEmpty(userCookie["email"]))
-            {
-                string email = userCookie["email"];
-                return UserHandler.GetUserIDByEmail(email);
-            }
-            else
-            {
-                Response.Redirect("HomePage.aspx");
-                return -1;
             }
         }
 
         private void RefreshCartGridView()
         {
-            int userId = GetUserIdFromCookie();
+            int userId = UserHandler.GetUserIdFromSession();
             if (userId != -1)
             {
                 GridViewCart.DataSource = CartHandler.GetUserCart(userId);
@@ -47,9 +33,9 @@ namespace JawelsDiamond.Views
 
         protected void CheckoutButton_Click(object sender, EventArgs e)
         {
-            int userId = GetUserIdFromCookie();
+            int userId = UserHandler.GetUserIdFromSession();
             string paymentMethod = PaymentList.SelectedValue;
-            TransactionHandler.CheckoutCart(userId, paymentMethod);
+            TransactionHandlers.CheckoutCart(userId, paymentMethod);
             RefreshCartGridView();
         }
 
@@ -61,7 +47,7 @@ namespace JawelsDiamond.Views
 
             int jewelId = Convert.ToInt32(removeButton.CommandArgument);
 
-            int userId = GetUserIdFromCookie();
+            int userId = UserHandler.GetUserIdFromSession();
 
             CartHandler.RemoveFromCart(userId, jewelId);
 
@@ -80,7 +66,7 @@ namespace JawelsDiamond.Views
 
             if (int.TryParse(textBoxQuantity.Text, out int newQuantity) && newQuantity > 0)
             {
-                int userId = GetUserIdFromCookie();
+                int userId = UserHandler.GetUserIdFromSession();
                 CartHandler.UpdateCartQuantity(userId, jewelId, newQuantity);
                 RefreshCartGridView();
             }

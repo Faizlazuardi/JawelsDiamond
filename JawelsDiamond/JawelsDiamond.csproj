@@ -93,7 +93,9 @@
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\JewelDetails.aspx" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\MyOrdersPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -108,7 +110,7 @@
     <Compile Include="Handler\CartHandler.cs" />
     <Compile Include="Handler\JewelHandler.cs" />
     <Compile Include="Handler\SessionHandler.cs" />
-    <Compile Include="Handler\TransactionHandler.cs" />
+    <Compile Include="Handler\TransactionHandlers.cs" />
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="Models\Cart.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
@@ -180,6 +182,13 @@
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyOrdersPage.aspx.cs">
+      <DependentUpon>MyOrdersPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MyOrdersPage.aspx.designer.cs">
+      <DependentUpon>MyOrdersPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageMaster.Master.cs">
       <DependentUpon>PageMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -193,6 +202,13 @@
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

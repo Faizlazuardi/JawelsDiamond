@@ -12,10 +12,14 @@ namespace JawelsDiamond.Handler
     {
         public static bool IsUserLoggedIn(HttpSessionState session)
         {
-            AuthController authController = new AuthController();
-            MsUser user = authController.ValidateRememberMeCookie();
+            if (session["UserID"] != null)
+            {
+                return true;
+            }
 
-            return session["user"] != null || user != null;
+            UserHandler.RestoreSessionFromCookie();
+
+            return session["UserID"] != null;
         }
 
         public static void RedirectIfLoggedIn(HttpSessionState session, HttpResponse response)

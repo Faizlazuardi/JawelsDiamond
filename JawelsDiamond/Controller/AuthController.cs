@@ -76,7 +76,7 @@ namespace JawelsDiamond.Controller
                 return "Invalid email or password";
             }
 
-            HttpContext.Current.Session["user"] = user;
+            HttpContext.Current.Session["UserID"] = user.UserID;
 
             if (rememberMe)
             {
@@ -88,17 +88,6 @@ namespace JawelsDiamond.Controller
             }
 
             return "Success";
-        }
-
-        public MsUser ValidateRememberMeCookie()
-        {
-            HttpCookie cookie = HttpContext.Current.Request.Cookies["user"];
-            if (cookie != null && !string.IsNullOrEmpty(cookie["email"]))
-            {
-                string email = cookie["email"];
-                return UserHandler.GetUserByEmail(email);
-            }
-            return null;
         }
     }
 }

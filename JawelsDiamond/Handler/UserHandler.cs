@@ -36,5 +36,30 @@ namespace JawelsDiamond.Handler
         {
             return UserRepository.GetIDByEmail(email);
         }
+
+        public static int GetUserIdFromSession()
+        {
+            if (HttpContext.Current.Session["UserID"] != null)
+            {
+                return (int)HttpContext.Current.Session["UserID"];
+            }
+            else
+            {
+                HttpContext.Current.Response.Redirect("HomePage.aspx");
+                return -1;
+            }
+        }
+
+        public static void RestoreSessionFromCookie()
+        {
+            HttpCookie userCookie = HttpContext.Current.Request.Cookies["user"];
+            if (userCookie != null && !string.IsNullOrEmpty(userCookie["email"]))
+            {
+                string email = userCookie["email"];
+                int userId = GetUserIDByEmail(email);
+
+                HttpContext.Current.Session["UserID"] = userId;
+            }
+        }
     }
 }

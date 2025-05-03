@@ -8,7 +8,7 @@ using System.Web;
 
 namespace JawelsDiamond.Handler
 {
-    public class TransactionHandler
+    public class TransactionHandlers
     {
         public static void CheckoutCart(int userId, string paymentMethod)
         {
@@ -28,6 +28,21 @@ namespace JawelsDiamond.Handler
 
                 CartRepository.ClearCart(userId);
             }
+        }
+
+        public static List<TransactionHeader> GetUserTransactions(int userId)
+        {
+            return TransactionRepository.GetTransactionsByUserId(userId);
+        }
+
+        public static List<TransactionDetail> GetUserTransactionsDetailed(int transactionId)
+        {
+            return TransactionRepository.GetDetailedTransactionsById(transactionId);
+        }
+
+        public static void UpdateTransactionStatus(int id, string status)
+        {
+            TransactionRepository.UpdateTransactionStatus(id, status);
         }
     }
 }

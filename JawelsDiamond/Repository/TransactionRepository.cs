@@ -1,7 +1,8 @@
 ﻿using JawelsDiamond.Models;
+using System.Data.Entity;
+using System.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 
 namespace JawelsDiamond.Repository
@@ -20,6 +21,32 @@ namespace JawelsDiamond.Repository
         {
             db.TransactionDetails.Add(detail);
             db.SaveChanges();
+        }
+
+        public static List<TransactionHeader> GetTransactionsByUserId(int userId)
+        {
+            return db.TransactionHeaders
+                .Where(t => t.UserID == userId)
+                .ToList();
+        }
+
+        public static List<TransactionDetail> GetDetailedTransactionsById(int transactionId)
+        {
+            return db.TransactionDetails
+                .Include(td => td.MsJewel)
+                .Include(td => td.TransactionHeader)
+                .Where(td => td.TransactionHeader.TransactionID == transactionId)
+                .ToList();
+        }
+
+        public static void UpdateTransactionStatus(int id, string status)
+        {
+            TransactionHeader transaction = db.TransactionHeaders.Find(id);
+            if (transaction != null)
+            {
+                transaction.TransactionStatus = status;
+                db.SaveChanges();
+            }
         }
     }
 }
