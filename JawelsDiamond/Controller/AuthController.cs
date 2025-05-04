@@ -77,6 +77,7 @@ namespace JawelsDiamond.Controller
             }
 
             HttpContext.Current.Session["UserID"] = user.UserID;
+            HttpContext.Current.Session["UserRole"] = user.UserRole;
 
             if (rememberMe)
             {

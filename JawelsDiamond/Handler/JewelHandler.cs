@@ -18,5 +18,23 @@ namespace JawelsDiamond.Handler
         {
             return JewelRepository.GetJewelById(id);
         }
+        public static void DeleteJewel(int id)
+        {
+            JewelRepository.DeleteJewel(id);
+        }
+
+        public static void UpdateJewel(int id, int brandId, int categoryId, string name, int price, int year)
+        {
+            MsJewel jewel = JewelRepository.GetJewelById(id);
+            if (jewel != null)
+            {
+                jewel.BrandID = brandId;
+                jewel.CategoryID = categoryId;
+                jewel.JewelName = name;
+                jewel.JewelPrice = price;
+                jewel.JewelReleaseYear = year;
+                JewelRepository.UpdateJewel(jewel);
+            }
+        }
     }
 }

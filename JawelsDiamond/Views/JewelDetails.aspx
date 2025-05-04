@@ -36,6 +36,8 @@
             </hgroup>
             <footer>
                 <asp:Button ID="AddToCartButton" runat="server" Text="Add to cart" OnClick="AddToCartButton_Click"/>
+                <asp:Button ID="DeleteButton" runat="server" Text="Delete" CssClass="pico-background-red-500" OnClick="DeleteButton_Click" Visible="false"/>
+                <asp:Button ID="EditButton" runat="server" Text="Edit" CssClass="pico-background-green-400" OnClick="EditButton_Click" Visible="false" />
             </footer>
         </article>
     </form>

@@ -12,7 +12,11 @@ namespace JawelsDiamond.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RefreshJewelGridView();
+            if(!IsPostBack)
+            {
+                UserHandler.RestoreSessionFromCookie();
+                RefreshJewelGridView();
+            }
         }
 
         private void RefreshJewelGridView()

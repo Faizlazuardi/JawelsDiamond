@@ -11,7 +11,7 @@ namespace JawelsDiamond.Views
 {
 
 
-    public partial class JewelDetails
+    public partial class UpdateJewelPage
     {
 
         /// <summary>
@@ -24,40 +24,49 @@ namespace JawelsDiamond.Views
         protected global::System.Web.UI.WebControls.Label JewelNameLabel;
 
         /// <summary>
-        /// JewelCategoryLabel control.
+        /// JewelNameInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label JewelCategoryLabel;
+        protected global::System.Web.UI.WebControls.TextBox JewelNameInput;
 
         /// <summary>
-        /// JewelBrandLabel control.
+        /// CategoryLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label JewelBrandLabel;
+        protected global::System.Web.UI.WebControls.Label CategoryLabel;
 
         /// <summary>
-        /// OriginLabel control.
+        /// CategoryDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label OriginLabel;
+        protected global::System.Web.UI.WebControls.DropDownList CategoryDropDownList;
 
         /// <summary>
-        /// ClassLabel control.
+        /// BrandLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ClassLabel;
+        protected global::System.Web.UI.WebControls.Label BrandLabel;
+
+        /// <summary>
+        /// BrandDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList BrandDropDownList;
 
         /// <summary>
         /// PriceLabel control.
@@ -69,6 +78,15 @@ namespace JawelsDiamond.Views
         protected global::System.Web.UI.WebControls.Label PriceLabel;
 
         /// <summary>
+        /// PriceInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PriceInput;
+
+        /// <summary>
         /// ReleaseLabel control.
         /// </summary>
         /// <remarks>
@@ -78,30 +96,30 @@ namespace JawelsDiamond.Views
         protected global::System.Web.UI.WebControls.Label ReleaseLabel;
 
         /// <summary>
-        /// AddToCartButton control.
+        /// ReleaseInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddToCartButton;
+        protected global::System.Web.UI.WebControls.TextBox ReleaseInput;
 
         /// <summary>
-        /// DeleteButton control.
+        /// SubmitButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteButton;
+        protected global::System.Web.UI.WebControls.Button SubmitButton;
 
         /// <summary>
-        /// EditButton control.
+        /// StatusMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EditButton;
+        protected global::System.Web.UI.WebControls.Label StatusMessage;
     }
 }

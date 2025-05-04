@@ -73,7 +73,9 @@
           <Property Name="TransactionStatus" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <Association Name="FK_Cart_MsJewel">
-          <End Role="MsJewel" Type="Self.MsJewel" Multiplicity="1" />
+          <End Role="MsJewel" Type="Self.MsJewel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MsJewel">
@@ -85,7 +87,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cart_MsUser">
-          <End Role="MsUser" Type="Self.MsUser" Multiplicity="1" />
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MsUser">
@@ -97,7 +101,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MsJewel_MsBrand">
-          <End Role="MsBrand" Type="Self.MsBrand" Multiplicity="1" />
+          <End Role="MsBrand" Type="Self.MsBrand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MsJewel" Type="Self.MsJewel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MsBrand">
@@ -109,7 +115,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MsJewel_MsCategory">
-          <End Role="MsCategory" Type="Self.MsCategory" Multiplicity="1" />
+          <End Role="MsCategory" Type="Self.MsCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MsJewel" Type="Self.MsJewel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MsCategory">
@@ -121,7 +129,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TransactionDetail_JewelID">
-          <End Role="MsJewel" Type="Self.MsJewel" Multiplicity="1" />
+          <End Role="MsJewel" Type="Self.MsJewel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MsJewel">
@@ -133,7 +143,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TransactionDetail_TransactionHeader">
-          <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="1" />
+          <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TransactionHeader">
@@ -145,7 +157,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TransactionHeader_MsUser">
-          <End Role="MsUser" Type="Self.MsUser" Multiplicity="1" />
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MsUser">

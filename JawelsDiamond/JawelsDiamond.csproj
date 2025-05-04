@@ -89,19 +89,23 @@
       <DependentUpon>DbModel.edmx</DependentUpon>
       <LastGenOutput>DbModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\AccessDeniedPage.aspx" />
     <Content Include="Views\CartPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\JewelDetails.aspx" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\LogOutPage.aspx" />
     <Content Include="Views\MyOrdersPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
+    <Content Include="Views\UpdateJewelPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\CartController.cs" />
+    <Compile Include="Controller\JewelController.cs" />
     <Compile Include="Factory\BrandFactory.cs" />
     <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Factory\CategoryFactory.cs" />
@@ -109,7 +113,9 @@
     <Compile Include="Factory\TransactionDetailFactory.cs" />
     <Compile Include="Factory\TransactionHeaderFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
+    <Compile Include="Handler\BrandHandler.cs" />
     <Compile Include="Handler\CartHandler.cs" />
+    <Compile Include="Handler\CategoryHandler.cs" />
     <Compile Include="Handler\JewelHandler.cs" />
     <Compile Include="Handler\SessionHandler.cs" />
     <Compile Include="Handler\TransactionHandlers.cs" />
@@ -151,11 +157,20 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BrandRepository.cs" />
     <Compile Include="Repository\CartRepository.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="Repository\JewelRepository.cs" />
     <Compile Include="Repository\TransactionRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Views\AccessDeniedPage.aspx.cs">
+      <DependentUpon>AccessDeniedPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AccessDeniedPage.aspx.designer.cs">
+      <DependentUpon>AccessDeniedPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +198,13 @@
     </Compile>
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogOutPage.aspx.cs">
+      <DependentUpon>LogOutPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\LogOutPage.aspx.designer.cs">
+      <DependentUpon>LogOutPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MyOrdersPage.aspx.cs">
       <DependentUpon>MyOrdersPage.aspx</DependentUpon>
@@ -218,6 +240,13 @@
     </Compile>
     <Compile Include="Views\TransactionDetailPage.aspx.designer.cs">
       <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateJewelPage.aspx.cs">
+      <DependentUpon>UpdateJewelPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateJewelPage.aspx.designer.cs">
+      <DependentUpon>UpdateJewelPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

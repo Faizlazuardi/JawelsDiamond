@@ -1,5 +1,6 @@
 ﻿using JawelsDiamond.Handler;
 using JawelsDiamond.Models;
+using JawelsDiamond.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,19 @@ namespace JawelsDiamond.Views
             if (!IsPostBack)
             {
                 SessionHandler.RedirectIfNotLoggedIn(Session, Response);
+                ShowButtonForAdmin();
                 ShowJewelDetails();
+            }
+        }
+
+        private void ShowButtonForAdmin()
+        {
+            MsUser currentUser = UserHandler.GetUserByID(UserHandler.GetUserIdFromSession());
+            if (currentUser.UserRole == "Admin")
+            {
+                AddToCartButton.Visible = false;
+                DeleteButton.Visible = true;
+                EditButton.Visible = true;
             }
         }
 
@@ -66,6 +79,20 @@ namespace JawelsDiamond.Views
             {
                 Response.Redirect("HomePage.aspx");
             }
+        }
+
+        // TODO : Add user checking for admin
+        protected void DeleteButton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+            JewelHandler.DeleteJewel(id);
+            Response.Redirect("HomePage.aspx");
+        }
+
+        protected void EditButton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+            Response.Redirect($"UpdateJewelPage.aspx?id={id}");
         }
     }
 }

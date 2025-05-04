@@ -37,5 +37,14 @@ namespace JawelsDiamond.Handler
                 response.Redirect("HomePage.aspx");
             }
         }
+
+        public static void CheckAdmin(int userId, HttpResponse response)
+        {
+            MsUser currentUser = UserHandler.GetUserByID(userId);
+            if (currentUser.UserRole != "Admin")
+            {
+                response.Redirect("AccessDeniedPage.aspx");
+            }
+        }
     }
 }

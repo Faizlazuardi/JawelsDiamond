@@ -38,6 +38,7 @@ namespace JawelsDiamond.Views
             string paymentMethod = PaymentList.SelectedValue;
             CartController cartController = new CartController();
             string result = cartController.Checkout(userId, paymentMethod);
+            StatusMessage.Text = result;
             RefreshCartGridView();
         }
 

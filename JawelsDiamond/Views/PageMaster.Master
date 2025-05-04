@@ -19,15 +19,18 @@
     <header>
         <nav>
             <ul>
-                <li><a href="HomePage.aspx">Home</a></li>
-                <li><a href="CartPage.aspx">Cart</a></li>
-                <li><a href="MyOrdersPage.aspx">My Orders</a></li>
-                <li><a href="ProfilePage.aspx">Profile</a></li>
+                <li id="HomeNavItem" runat="server"><a href="HomePage.aspx">Home</a></li>
+                <li id="CartNavItem" runat="server"><a href="CartPage.aspx">Cart</a></li>
+                <li id="MyOrdersNavItem" runat="server"><a href="MyOrdersPage.aspx">My Orders</a></li>
+                <li id="ProfileNavItem" runat="server"><a href="ProfilePage.aspx">Profile</a></li>
+                <li id="AddJewelNavItem" runat="server"><a href="AddJewelPage.aspx">Add Jewel</a></li>
+                <li id="ReportsNavItem" runat="server"><a href="ReportsPage.aspx">Reports</a></li>
+                <li id="HandleOrdersNavItem" runat="server"><a href="HandleOrdersPage.aspx">Handle Orders</a></li>
             </ul>
             <ul>
-                <li><a href="RegisterPage.aspx">Register</a></li>
-                <li><a href="LoginPage.aspx">Login</a></li>
-                <li><a href="#">Logout</a></li>
+                <li id="RegisterNavItem" runat="server"><a href="RegisterPage.aspx">Register</a></li>
+                <li id="LoginNavItem" runat="server"><a href="LoginPage.aspx">Login</a></li>
+                <li id="LogoutNavItem" runat="server"><a href="LogoutPage.aspx">Logout</a></li>
             </ul>
         </nav>
     </header>

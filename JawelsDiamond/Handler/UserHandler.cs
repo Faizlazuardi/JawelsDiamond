@@ -27,9 +27,9 @@ namespace JawelsDiamond.Handler
             return UserRepository.GetUserByEmailAndPassword(email, password);
         }
 
-        public static MsUser GetUserByEmail(string email)
+        public static MsUser GetUserByID(int userId)
         {
-            return UserRepository.GetUserByEmail(email);
+            return UserRepository.GetUserById(userId);
         }
 
         public static int GetUserIDByEmail(string email)
@@ -72,6 +72,21 @@ namespace JawelsDiamond.Handler
                 return true;
             }
             return false;
+        }
+
+        public static void Logout()
+        {
+            HttpContext.Current.Session.Clear();
+            HttpContext.Current.Session.Abandon();
+
+            HttpCookie userCookie = HttpContext.Current.Request.Cookies["user"];
+            if (userCookie != null)
+            {
+                userCookie.Expires = DateTime.Now.AddDays(-1);
+                HttpContext.Current.Response.Cookies.Add(userCookie);
+            }
+
+            HttpContext.Current.Response.Redirect("LoginPage.aspx");
         }
     }
 }
