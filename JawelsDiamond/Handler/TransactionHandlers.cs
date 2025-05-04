@@ -24,5 +24,10 @@ namespace JawelsDiamond.Handler
         {
             TransactionRepository.UpdateTransactionStatus(id, status);
         }
+
+        public static List<TransactionHeader> GetUnfinishedTransactions()
+        {
+            return TransactionRepository.GetUnfinishedTransactions();
+        }
     }
 }

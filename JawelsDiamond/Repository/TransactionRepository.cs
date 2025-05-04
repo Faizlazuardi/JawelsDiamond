@@ -4,6 +4,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Web;
+using System.Runtime.Remoting.Messaging;
 
 namespace JawelsDiamond.Repository
 {
@@ -47,6 +48,14 @@ namespace JawelsDiamond.Repository
                 transaction.TransactionStatus = status;
                 db.SaveChanges();
             }
+        }
+
+        public static List<TransactionHeader> GetUnfinishedTransactions()
+        {
+            return db.TransactionHeaders
+                .Where(t => t.TransactionStatus != "Done" && t.TransactionStatus != "Rejected")
+                .Include("MsUser")
+                .ToList();
         }
     }
 }

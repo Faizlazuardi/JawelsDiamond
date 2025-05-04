@@ -91,6 +91,7 @@
     </Content>
     <Content Include="Views\AccessDeniedPage.aspx" />
     <Content Include="Views\CartPage.aspx" />
+    <Content Include="Views\HandleOrdersPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\JewelDetails.aspx" />
     <Content Include="Views\LoginPage.aspx" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="Views\CartPage.aspx.designer.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HandleOrdersPage.aspx.cs">
+      <DependentUpon>HandleOrdersPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\HandleOrdersPage.aspx.designer.cs">
+      <DependentUpon>HandleOrdersPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

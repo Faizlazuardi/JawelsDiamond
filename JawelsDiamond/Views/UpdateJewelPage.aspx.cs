@@ -20,7 +20,6 @@ namespace JawelsDiamond.Views
                 SessionHandler.CheckAdmin(UserHandler.GetUserIdFromSession(), Response);
                 RefreshFormView();
             }
-            
         }
 
         private void RefreshFormView()
