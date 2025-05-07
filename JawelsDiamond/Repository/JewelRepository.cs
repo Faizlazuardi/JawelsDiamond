@@ -34,5 +34,11 @@ namespace JawelsDiamond.Repository
             db.Entry(jewel).State = EntityState.Modified;
             db.SaveChanges();
         }
+
+        public static void InsertJewel(MsJewel jewel)
+        {
+            db.MsJewels.Add(jewel);
+            db.SaveChanges();
+        }
     }
 }

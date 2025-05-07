@@ -1,4 +1,5 @@
-﻿using JawelsDiamond.Models;
+﻿using JawelsDiamond.Factory;
+using JawelsDiamond.Models;
 using JawelsDiamond.Repository;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,12 @@ namespace JawelsDiamond.Handler
                 jewel.JewelReleaseYear = year;
                 JewelRepository.UpdateJewel(jewel);
             }
+        }
+
+        public static void AddJewel(int brandId, int categoryId, string name, int price, int year)
+        {
+            MsJewel jewel = JewelFactory.CreateJewel(brandId, categoryId, name, price, year);
+            JewelRepository.InsertJewel(jewel);
         }
     }
 }

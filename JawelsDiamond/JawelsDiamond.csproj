@@ -90,6 +90,7 @@
       <LastGenOutput>DbModel.cs</LastGenOutput>
     </Content>
     <Content Include="Views\AccessDeniedPage.aspx" />
+    <Content Include="Views\AddJewelPage.aspx" />
     <Content Include="Views\CartPage.aspx" />
     <Content Include="Views\HandleOrdersPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
@@ -171,6 +172,13 @@
     </Compile>
     <Compile Include="Views\AccessDeniedPage.aspx.designer.cs">
       <DependentUpon>AccessDeniedPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddJewelPage.aspx.cs">
+      <DependentUpon>AddJewelPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AddJewelPage.aspx.designer.cs">
+      <DependentUpon>AddJewelPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
