@@ -1,4 +1,4 @@
-﻿using JawelsDiamond.Handler;
+﻿using JawelsDiamond.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace JawelsDiamond.Views
             int id = Convert.ToInt32(Request.QueryString["id"]);
             if (id != -1)
             {
-                GridViewTransactionDetails.DataSource = TransactionHandlers.GetUserTransactionsDetailed(id);
+                GridViewTransactionDetails.DataSource = TransactionHandler.GetUserTransactionsDetailed(id);
                 GridViewTransactionDetails.DataBind();
             }
         }

@@ -1,4 +1,4 @@
-﻿using JawelsDiamond.Handler;
+﻿using JawelsDiamond.Handlers;
 using JawelsDiamond.Models;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace JawelsDiamond.Views
             int userId = UserHandler.GetUserIdFromSession();
             if (userId != -1)
             {
-                GridViewOrders.DataSource = TransactionHandlers.GetUserTransactions(userId);
+                GridViewOrders.DataSource = Handlers.TransactionHandler.GetUserTransactions(userId);
                 GridViewOrders.DataBind();
             }
         }
@@ -67,7 +67,7 @@ namespace JawelsDiamond.Views
 
                 string newStatus = e.CommandName == "Confirm" ? "Done" : "Rejected";
 
-                TransactionHandlers.UpdateTransactionStatus(transactionId, newStatus);
+                Handlers.TransactionHandler.UpdateTransactionStatus(transactionId, newStatus);
 
                 RefreshOrderGridView();
             }

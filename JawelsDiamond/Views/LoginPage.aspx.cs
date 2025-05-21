@@ -1,5 +1,5 @@
 ﻿using JawelsDiamond.Controller;
-using JawelsDiamond.Handler;
+using JawelsDiamond.Handlers;
 using JawelsDiamond.Models;
 using System;
 using System.Collections.Generic;

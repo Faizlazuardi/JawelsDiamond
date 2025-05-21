@@ -1,4 +1,4 @@
-﻿using JawelsDiamond.Handler;
+﻿using JawelsDiamond.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace JawelsDiamond.Views
 
         private void RefreshGridView()
         {
-            GridViewHandlerOrders.DataSource = TransactionHandlers.GetUnfinishedTransactions();
+            GridViewHandlerOrders.DataSource = TransactionHandler.GetUnfinishedTransactions();
             GridViewHandlerOrders.DataBind();
         }
 
@@ -32,7 +32,7 @@ namespace JawelsDiamond.Views
             int rowIndex = Convert.ToInt32(e.CommandArgument);
             int transactionId = Convert.ToInt32(GridViewHandlerOrders.DataKeys[rowIndex].Value);
 
-            TransactionHandlers.UpdateTransactionStatus(transactionId, "Shipment Pending");
+            TransactionHandler.UpdateTransactionStatus(transactionId, "Shipment Pending");
             RefreshGridView();
         }
 
@@ -41,7 +41,7 @@ namespace JawelsDiamond.Views
             int rowIndex = Convert.ToInt32(e.CommandArgument);
             int transactionId = Convert.ToInt32(GridViewHandlerOrders.DataKeys[rowIndex].Value);
 
-            TransactionHandlers.UpdateTransactionStatus(transactionId, "Arrived");
+            TransactionHandler.UpdateTransactionStatus(transactionId, "Arrived");
             RefreshGridView();
         }
 

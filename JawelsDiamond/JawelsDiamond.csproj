@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -75,19 +79,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Db.mdf" />
-    <Content Include="App_Data\Db_log.ldf">
-      <DependentUpon>Db.mdf</DependentUpon>
-    </Content>
-    <Content Include="Models\DbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DbModel.Context.cs</LastGenOutput>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Models\DbModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-      <LastGenOutput>DbModel.cs</LastGenOutput>
+      <LastGenOutput>DbModel1.cs</LastGenOutput>
     </Content>
     <Content Include="Views\AccessDeniedPage.aspx" />
     <Content Include="Views\AddJewelPage.aspx" />
@@ -100,42 +94,49 @@
     <Content Include="Views\MyOrdersPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\ReportPage.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Views\UpdateJewelPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\AuthController.cs" />
-    <Compile Include="Controller\CartController.cs" />
-    <Compile Include="Controller\JewelController.cs" />
-    <Compile Include="Factory\BrandFactory.cs" />
-    <Compile Include="Factory\CartFactory.cs" />
-    <Compile Include="Factory\CategoryFactory.cs" />
-    <Compile Include="Factory\JewelFactory.cs" />
-    <Compile Include="Factory\TransactionDetailFactory.cs" />
-    <Compile Include="Factory\TransactionHeaderFactory.cs" />
-    <Compile Include="Factory\UserFactory.cs" />
-    <Compile Include="Handler\BrandHandler.cs" />
-    <Compile Include="Handler\CartHandler.cs" />
-    <Compile Include="Handler\CategoryHandler.cs" />
-    <Compile Include="Handler\JewelHandler.cs" />
-    <Compile Include="Handler\SessionHandler.cs" />
-    <Compile Include="Handler\TransactionHandlers.cs" />
-    <Compile Include="Handler\UserHandler.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\JewelController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="DataSets\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Factories\BrandFactory.cs" />
+    <Compile Include="Factories\CartFactory.cs" />
+    <Compile Include="Factories\CategoryFactory.cs" />
+    <Compile Include="Factories\JewelFactory.cs" />
+    <Compile Include="Factories\TransactionDetailFactory.cs" />
+    <Compile Include="Factories\TransactionHeaderFactory.cs" />
+    <Compile Include="Factories\UserFactory.cs" />
+    <Compile Include="Handlers\BrandHandler.cs" />
+    <Compile Include="Handlers\CartHandler.cs" />
+    <Compile Include="Handlers\CategoryHandler.cs" />
+    <Compile Include="Handlers\JewelHandler.cs" />
+    <Compile Include="Handlers\SessionHandler.cs" />
+    <Compile Include="Handlers\TransactionHandler.cs" />
+    <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Models\Cart.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.Context.tt</DependentUpon>
+    <Compile Include="Models\DbModel.Context.cs" />
+    <Compile Include="Models\DbModel.cs" />
+    <Compile Include="Models\DbModel.Designer.cs">
+      <DependentUpon>DbModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\DbModel.cs">
+    <Compile Include="Models\DbModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DbModel.Designer.cs">
+    <Compile Include="Models\DbModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DbModel.edmx</DependentUpon>
@@ -159,13 +160,19 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\BrandRepository.cs" />
-    <Compile Include="Repository\CartRepository.cs" />
-    <Compile Include="Repository\CategoryRepository.cs" />
-    <Compile Include="Repository\DatabaseSingleton.cs" />
-    <Compile Include="Repository\JewelRepository.cs" />
-    <Compile Include="Repository\TransactionRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Reports\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Repositories\BrandRepository.cs" />
+    <Compile Include="Repositories\CartRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\DatabaseSingleton.cs" />
+    <Compile Include="Repositories\JewelRepository.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Views\AccessDeniedPage.aspx.cs">
       <DependentUpon>AccessDeniedPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,6 +257,13 @@
     <Compile Include="Views\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReportPage.aspx.cs">
+      <DependentUpon>ReportPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ReportPage.aspx.designer.cs">
+      <DependentUpon>ReportPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\TransactionDetailPage.aspx.cs">
       <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,9 +280,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataSets\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSets\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSets\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
     <EntityDeploy Include="Models\DbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DbModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\DbModel.edmx.diagram">
       <DependentUpon>DbModel.edmx</DependentUpon>
@@ -282,9 +307,18 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

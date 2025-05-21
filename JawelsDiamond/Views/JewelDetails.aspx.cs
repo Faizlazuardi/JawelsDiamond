@@ -1,6 +1,6 @@
-﻿using JawelsDiamond.Handler;
+﻿using JawelsDiamond.Handlers;
 using JawelsDiamond.Models;
-using JawelsDiamond.Repository;
+using JawelsDiamond.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
